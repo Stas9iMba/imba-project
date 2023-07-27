@@ -1,0 +1,134 @@
+{
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "node": true,
+    "es6": true,
+    "jest": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "tsconfigRootDir": "./",
+    "project": "./tsconfig.json"
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "eslint-comments",
+    "promise",
+    "sonarjs",
+    "unicorn"
+  ],
+  "extends": [
+    "airbnb",
+    "airbnb-typescript",
+    "plugin:react-hooks/recommended",
+    "airbnb/hooks",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:eslint-comments/recommended",
+    "plugin:promise/recommended",
+    "plugin:sonarjs/recommended",
+    "plugin:unicorn/recommended",
+    "plugin:compat/recommended",
+    "prettier"
+  ],
+  "rules": {
+    "@typescript-eslint/no-use-before-define": [
+      "error",
+      {
+        "functions": false,
+        "classes": true,
+        "variables": true,
+        "typedefs": true
+      }
+    ],
+
+    "func-names": ["warn", "as-needed"],
+    "no-console": ["warn", { "allow": ["warn", "error"] }],
+    "no-debugger": "error",
+    "no-restricted-exports": "off",
+    "no-underscore-dangle": ["error", { "allow": ["__typename"] }],
+    "no-void": ["error", { "allowAsStatement": true }],
+    "no-prototype-builtins": "off",
+    "no-restricted-syntax": ["error", "LabeledStatement", "WithStatement"],
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "type",
+          "object",
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index"
+        ],
+        "pathGroups": [{
+          "pattern": "~/**",
+          "group": "external"
+        }],
+        "newlines-between": "always",
+        "alphabetize": { "order": "asc" }
+      }
+    ],
+    "import/prefer-default-export": "off",
+
+    "react/function-component-definition": [
+      "error",
+      {
+        "namedComponents": "function-declaration",
+        "unnamedComponents": "arrow-function"
+      }
+    ],
+    "react/jsx-props-no-spreading": "warn",
+    "react/boolean-prop-naming": [
+      "warn",
+      { "rule": "^(is|has)[A-Z]([A-Za-z0-9]?)+" }
+    ],
+    "react/prop-types": "off",
+    "react/require-default-props": "off",
+    "react/react-in-jsx-scope": "off",
+
+    "unicorn/filename-case": [
+      "error",
+      { "cases": { "camelCase": true, "pascalCase": true } }
+    ],
+    "unicorn/no-null": "off",
+    "unicorn/prevent-abbreviations": [
+      "error",
+      {
+        "allowList": {
+          "props": true,
+          "Props": true,
+          "ref": true,
+          "Ref": true
+        }
+      }
+    ],
+
+
+    "eslint-comments/require-description": [
+      "error",
+      { "ignore": ["eslint-enable"] }
+    ],
+
+    "jsx-a11y/label-has-associated-control": [
+      "error",
+      {
+        "assert": "either" // either check for `htmlFor` or `nesting`
+      }
+    ]
+
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "moduleDirectory": ["node_modules", "src/"]
+      },
+      "typescript": {
+        "project": "./tsconfig.json"
+      }
+    }
+  }
+}
