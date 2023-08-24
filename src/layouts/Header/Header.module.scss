@@ -1,0 +1,17 @@
+.header-wrapper{
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.logo{
+  padding: 1rem;
+  display: inline-block;
+
+  &__icon{
+    width: 100px;
+    height: auto;
+    display: block;
+  }
+}
+
