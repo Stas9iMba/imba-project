@@ -1,8 +1,10 @@
 import { Button } from 'antd';
+import sha256 from 'crypto-js/sha256';
 import { useState, useCallback } from 'react';
 
+import UserService from 'src/services/UserService';
 import AuthForm, { AuthFormValues } from '~components/AuthForm';
-import RegisterForm from '~components/RegisterForm';
+import RegisterForm, { RegisterFormValues } from '~components/RegisterForm';
 
 import style from './AuthRoute.module.scss';
 
@@ -13,8 +15,12 @@ function AuthRoute() {
     setIsAuthUser((isAuth) => !isAuth);
   }, []);
 
-  const handleFinish = useCallback((values: AuthFormValues) => {
-    console.log('Success:', values);
+  const handleAuthFinish = useCallback((values: AuthFormValues) => {
+    UserService.Instance.auth(values.username, sha256(values.password).toString());
+  }, []);
+
+  const handleRegisterFinish = useCallback((values: RegisterFormValues) => {
+    UserService.Instance.register(values.username, sha256(values.password).toString());
   }, []);
 
   return (
@@ -23,7 +29,7 @@ function AuthRoute() {
         <div className={style['auth-form']}>
           <h2 className={style['auth-form__title']}>Welcome to Imba</h2>
           <div className={style['auth-form__content']}>
-            <AuthForm onFinish={handleFinish} />
+            <AuthForm onFinish={handleAuthFinish} />
           </div>
           <div className={style['auth-form__footer']}>
             New to Messenger?
@@ -36,7 +42,7 @@ function AuthRoute() {
         <div className={style['register-form']}>
           <h2 className={style['register-form__title']}>Create an account</h2>
           <div className={style['register-form__content']}>
-            <RegisterForm onFinish={handleFinish} />
+            <RegisterForm onFinish={handleRegisterFinish} />
           </div>
           <div className={style['register-form__footer']}>
             <Button type="link" onClick={handlerSwitchForm}>

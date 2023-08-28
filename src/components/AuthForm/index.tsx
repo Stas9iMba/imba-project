@@ -1,4 +1,4 @@
-import { Form, Input, Button, Typography, FormInstance } from 'antd';
+import { Form, Input, Button, FormInstance } from 'antd';
 
 export type AuthFormValues = {
   username: string;

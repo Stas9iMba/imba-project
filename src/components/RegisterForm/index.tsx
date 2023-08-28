@@ -1,6 +1,6 @@
-import { Button, Form, Input, FormInstance, Typography } from 'antd';
+import { Button, Form, Input, FormInstance } from 'antd';
 
-type RegisterFormValues = {
+export type RegisterFormValues = {
   username: string;
   password: string;
 };
@@ -25,23 +25,6 @@ function RegisterForm({ className, isLoading, form, onFinish }: RegisterFormProp
       <Form.Item label="Username" name="username" rules={[{ required: true, message: 'Please input your username!' }]}>
         <Input disabled={isLoading} />
       </Form.Item>
-      <Form.Item
-        name="email"
-        label="E-mail"
-        rules={[
-          {
-            type: 'email',
-            message: 'The input is not valid E-mail!',
-          },
-          {
-            required: true,
-            message: 'Please input your E-mail!',
-          },
-        ]}
-      >
-        <Input disabled={isLoading} />
-      </Form.Item>
-
       <Form.Item
         name="password"
         label="Password"

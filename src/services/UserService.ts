@@ -41,7 +41,7 @@ class UserService {
     return this.currentUser;
   }
 
-  public signIn(username: string, passwordHash: string) {
+  public auth(username: string, passwordHash: string) {
     const database = this.parseDatabase();
 
     if (!database || !database.users) {
@@ -58,7 +58,7 @@ class UserService {
     return user;
   }
 
-  public signUp(username: string, passwordHash: string) {
+  public register(username: string, passwordHash: string) {
     let database = this.parseDatabase();
 
     if (!database || !database.users) {
