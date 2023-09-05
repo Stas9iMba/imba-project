@@ -1,0 +1,16 @@
+.container {
+  max-width: 1024px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.home {
+  &__top {
+    padding-top: 2rem;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 64px 1fr;
+    padding-bottom: 1rem;
+  }
+}

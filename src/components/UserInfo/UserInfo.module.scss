@@ -1,0 +1,15 @@
+.info {
+  display: grid;
+  gap: 5px;
+  padding-bottom: 1rem;
+
+  p {
+    margin: 0;
+    font-size: 1rem;
+  }
+
+  &__username {
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+}

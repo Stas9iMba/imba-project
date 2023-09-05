@@ -61,7 +61,6 @@ function RegisterForm({ className, isLoading, form, onFinish }: RegisterFormProp
       >
         <Input.Password disabled={isLoading} />
       </Form.Item>
-
       <Form.Item wrapperCol={{ offset: 7, span: 10 }}>
         <Button type="primary" htmlType="submit" block loading={isLoading}>
           Register

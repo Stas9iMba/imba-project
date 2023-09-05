@@ -3,6 +3,7 @@ import './App.css';
 
 import PageLayout from '~layouts/PageLayout';
 import AuthRoute from '~routes/AuthRoute';
+import HomeRoute from '~routes/HomeRoute';
 
 const router = createBrowserRouter([
   {
@@ -12,6 +13,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <AuthRoute />,
+      },
+      {
+        path: '/home',
+        element: <HomeRoute />,
       },
     ],
   },
