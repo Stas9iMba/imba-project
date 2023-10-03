@@ -49,7 +49,6 @@ class UserService {
     }
 
     const user = database.users.find((value) => value.username === username && value.passwordHash === passwordHash);
-
     if (!user) {
       throw new Error('User not found');
     }
@@ -77,6 +76,7 @@ class UserService {
     database.users.push(user);
 
     this.saveDatabase(database);
+    return user;
   }
 }
 

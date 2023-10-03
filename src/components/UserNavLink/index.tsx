@@ -1,8 +1,21 @@
+import NiceModal from '@ebay/nice-modal-react';
+import { useCallback } from 'react';
 import { Link } from 'react-router-dom';
+
+import FollowersModal from 'src/containers/FollowersModal';
+import FollowingsModal from 'src/containers/FollowingsModal';
 
 import style from './UserNavLink.module.scss';
 
 function UserNavLink() {
+  const handleFollowersButtonClick = useCallback(() => {
+    void NiceModal.show(FollowersModal);
+  }, []);
+
+  const handleFollowingsButtonClick = useCallback(() => {
+    void NiceModal.show(FollowingsModal);
+  }, []);
+
   return (
     <ul className={style['list']}>
       <li>
@@ -12,16 +25,16 @@ function UserNavLink() {
         </Link>
       </li>
       <li>
-        <Link to="/followings">
+        <button type="button" onClick={handleFollowingsButtonClick}>
           <p>12</p>
           <span>Following</span>
-        </Link>
+        </button>
       </li>
       <li>
-        <Link to="/followers">
+        <button type="button" onClick={handleFollowersButtonClick}>
           <p>1</p>
           <span>Followers</span>
-        </Link>
+        </button>
       </li>
     </ul>
   );

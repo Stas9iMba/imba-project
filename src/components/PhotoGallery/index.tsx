@@ -4,7 +4,7 @@ function PhotoGallery() {
   return (
     <Row gutter={[16, 16]}>
       {Array.from({ length: 20 }).map(() => (
-        <Col span={6}>
+        <Col span={8}>
           <Image src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png" />
         </Col>
       ))}
